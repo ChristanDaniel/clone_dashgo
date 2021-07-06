@@ -3,7 +3,6 @@ import { Input } from '../components/Form/Input'
 
 export default function SignIn() {
   return (
-  // estava assim o restante tira e faz commits   <h1>Dashgo</h1>
   <Flex
     w="100vw"
     h="100vh"
