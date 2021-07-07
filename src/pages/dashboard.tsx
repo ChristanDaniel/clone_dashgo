@@ -1,8 +1,17 @@
+import { Flex, SimpleGrid, Box, Text, theme } from '@chakra-ui/react'
 import { Header } from "../components/Header";
+// import { Siderbar } from '../components/Siderbar';
+import dynamic from 'next/dynamic';
+
 
 
 export default function Dashboard() {
     return(
-        <Header />
+        <Flex direction="column" h="100vh">
+            <Header />
+
+            <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
+        </Flex>
+    </Flex>
     )
 }
