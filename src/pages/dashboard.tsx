@@ -1,9 +1,9 @@
-import { Flex, SimpleGrid, Box, Text, theme } from '@chakra-ui/react'
+import { Flex, SimpleGrid, Box, Text, theme, DarkMode } from '@chakra-ui/react'
 import { Header } from "../components/Header";
 import { Siderbar } from '../components/Siderbar';
 import dynamic from 'next/dynamic';
 
-const Chart = dynamic(() => import('react-apexcharts'), {
+const Chart = dynamic(() => import( 'react-apexcharts' ), {
     ssr: false,
 })
 
@@ -27,7 +27,7 @@ const options = {
         enabled: false,
     },
     xaxis: {
-        type: 'datetime',
+         type: 'datetime',
         axisBorder: {
             color: theme.colors.gray[600]
         },
@@ -44,7 +44,16 @@ const options = {
             '2021-03-24T00:00:00.000Z',
         ]
     },
-};
+    fill: {
+        opacity: 0.3,
+        type: 'gradient',
+        gradient: {
+            shade: 'dark',
+            opacityFrom: 0.7,
+            opacityTo: 0.3,
+        }
+    }
+} as const;
 
 const series = [
     { name: 'series1', data: [31, 120, 10, 28, 61, 18, 109] }
