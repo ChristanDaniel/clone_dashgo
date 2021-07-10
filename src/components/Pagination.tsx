@@ -5,10 +5,10 @@ export function Pagination() {
     return(
         <Stack
         direction= "row"
-        spancing="6"
-        mr="8"
-        justify="space-between"
-        align="center"
+        spacing= "6"
+        mt= "8"
+        justify= "space-between"
+        align= "center"
         >
             <Box> 
                 <strong>0</strong> - <strong>10</strong> de <strong>100</strong>
