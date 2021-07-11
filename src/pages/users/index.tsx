@@ -3,7 +3,7 @@ import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 
 import { Header } from '../../components/Header'
 import { Pagination } from '../../components/Pagination';
-import { Siderbar } from '../../components/Siderbar'
+import { Siderbar } from '../../components/Sidebar/index'
 
 export default function UserList() {
     return(
