@@ -34,8 +34,10 @@ export default function CreateUser() {
     })
     const { errors } = formState
 
-    const handleCreateUser: submitHandler = (values) => {
-        
+    const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
+        await new Promise(resolve => setTimeout(resolve, 2000))
+
+        console.log(values)
     }
 
     return(
@@ -45,7 +47,7 @@ export default function CreateUser() {
             <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
               <Siderbar />
 
-              <Box flex="1" borderRadius="8" bg="gray.800" p={["8"]}>
+              <Box as="form" flex="1" borderRadius="8" bg="gray.800" p={["6", "8"]} onSubmit={handleSubmit(handleCreateUser)}>
                   <Heading size="lg" fontWeight="normal">Criar usuário</Heading>
 
                   <Divider my="6" borderColor="gray.700" />
