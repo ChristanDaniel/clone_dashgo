@@ -54,13 +54,36 @@ export default function CreateUser() {
 
                   <VStack spacing="8">
                       <SimpleGrid minChildWidth="240px" spacing="8" w="100%">
-                          <Input name="name" label="Nome Completo" {...register('name')}/>
-                          <Input name="email" type="email" label="E-mail" {...register('email')}/>
+                          <Input
+                            name="name"
+                            label="Nome Completo"
+                            error={errors.name}
+                            {...register('name')}
+                            />
+                          <Input
+                            name="email"
+                            type="email"
+                            label="E-mail"
+                            error={errors.email}
+                            {...register('email')}
+                            />
                       </SimpleGrid>
 
                       <SimpleGrid minChildWidth="240px" spacing="8" w="100%">
-                          <Input name="password" type="password" label="Senha" {...register('password')}/>
-                          <Input name="password_confirmation" type="password" label="Confirmação da senha" {...register('password_confirmation')}/>
+                          <Input
+                            name="password"
+                            type="password"
+                            label="Senha"
+                            error={errors.password}
+                            {...register('password')}
+                            />
+                          <Input
+                            name="password_confirmation"
+                            type="password"
+                            label="Confirmação da senha"
+                            error={errors.confirmation}
+                            {...register('password_confirmation')} 
+                            />
                       </SimpleGrid>
                   </VStack>
 
@@ -69,7 +92,7 @@ export default function CreateUser() {
                         <Link href="/users" passHref>
                           <Button as="a" colorScheme="whiteAlpha">Cancelar</Button>
                         </Link>
-                          <Button colorScheme="pink">Salvar</Button>
+                          <Button type="submit" colorScheme="pink" isLoading={formState.isSubmitting}>Salvar</Button>
                       </HStack>
                   </Flex>
               </Box>
