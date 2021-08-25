@@ -10,6 +10,8 @@ import { Pagination } from '../../components/Pagination';
 import { Siderbar } from '../../components/Sidebar/index'
 import { useUsers } from '../../service/hooks/useUsers';
 import { useState } from 'react';
+import { queryClient } from '../../service/queryClient';
+import { api } from '../../service/api';
 
 export default function UserList() {
     const [page, setPage] = useState(1);
@@ -20,7 +22,15 @@ export default function UserList() {
         lg: true,
     })
 
-    function handlePrefecthUser() 
+    async function handlePrefecthUser(userId: number) {
+      await queryClient.prefetchQuery(['user', userId], async () => {
+        const response = await api.get(`users/${userId}`)
+
+        return response.data
+      }, {
+        staleTime: 1000 * 60 * 10, //10 minutos
+      })
+    }
 
     return(
         <Box>
