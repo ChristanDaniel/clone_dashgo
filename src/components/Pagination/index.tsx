@@ -2,7 +2,31 @@ import { Flex, Stack, Button, Box, theme, DarkMode } from '@chakra-ui/react'
 import { PaginationItem } from './PaginationItem'
 
 
-export function Pagination() {
+interface PaginationProps {
+    totalCountOfRigister: number;
+    registerPerPage?: number;
+    currentPage?: number;
+    OnPageChange: (page: number) => void;
+}
+
+const siblingsCount = 1;
+
+function generatePagesArray(from: number, to: number) {
+    return [... new Array(to - from)]
+    .map((_, index) => {
+        return from + index + 1;
+    })
+    .filter(page => page > 0)
+}
+
+export function Pagination({
+    totalCountOfRigister,
+    registerPerPage = 10,
+    currentPage = 1,
+    OnPageChange
+}: PaginationProps) {
+    const lastPage = Math.floor(totalCountOfRigister / registerPerPage)
+
     return(
         <Stack
         direction= {["column","row"]}
